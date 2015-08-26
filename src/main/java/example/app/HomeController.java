@@ -1,4 +1,4 @@
-package example.app.app.welcome;
+package example.app;
 
 import java.text.DateFormat;
 import java.util.Date;

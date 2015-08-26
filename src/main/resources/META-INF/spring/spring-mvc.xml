@@ -12,7 +12,7 @@
     <context:property-placeholder
         location="classpath*:/META-INF/spring/*.properties" />
 
-    <mvc:annotation-driven>
+    <mvc:annotation-driven enable-matrix-variables="true">
         <mvc:argument-resolvers>
             <bean
                 class="org.springframework.data.web.PageableHandlerMethodArgumentResolver" />
@@ -23,7 +23,7 @@
 
     <mvc:default-servlet-handler />
 
-    <context:component-scan base-package="example.app.app" />
+    <context:component-scan base-package="example.app" />
 
     <mvc:resources mapping="/resources/**"
         location="/resources/,classpath:META-INF/resources/"
