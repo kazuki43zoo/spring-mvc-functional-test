@@ -163,6 +163,11 @@ public class HandlerMethodArgumentController {
         return form;
     }
 
+    @ModelAttribute("name")
+    public String setUpName(){
+        return "name by @ModelAttribute method";
+    }
+
     @RequestMapping("modelAttributeByDefaultName")
     public void modelAttributeByDefaultName(ModelAttributeForm form, Model model) {
         model.addAttribute("message", "call modelAttributeByDefaultName.");
@@ -173,6 +178,12 @@ public class HandlerMethodArgumentController {
     public void modelAttributeByCustomName(@ModelAttribute("customModelAttributeForm") ModelAttributeForm form, Model model) {
         model.addAttribute("message", "call modelAttributeByCustomName.");
         model.addAttribute("value", form.getValue());
+    }
+
+    @RequestMapping("modelAttributeForSimpleType")
+    public void modelAttributeForSimpleType(@ModelAttribute("name") String name, Model model) {
+        model.addAttribute("message", "call modelAttributeForSimpleType.");
+        model.addAttribute("name", name);
     }
 
     @RequestMapping("pathVariable/{id}")

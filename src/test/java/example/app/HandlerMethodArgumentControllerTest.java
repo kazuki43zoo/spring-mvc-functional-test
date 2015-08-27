@@ -363,6 +363,19 @@ public class HandlerMethodArgumentControllerTest {
         assertThat(mvcResult.getModelAndView().getModelMap().get("value"), is("custom"));
 
     }
+    @Test
+    public void modelAttributeForSimpleType() throws Exception {
+        MvcResult mvcResult = this.mockMvc.perform(
+                get("/handler-method-argument/modelAttributeForSimpleType"))
+                .andExpect(
+                        status().isOk())
+                .andReturn();
+
+        assertThat(mvcResult.getModelAndView().getModelMap().get("message"), is("call modelAttributeForSimpleType."));
+        assertThat(mvcResult.getModelAndView().getModelMap().get("name"), is("name by @ModelAttribute method"));
+
+    }
+
 
     @Test
     public void pathVariable() throws Exception {
@@ -581,8 +594,6 @@ public class HandlerMethodArgumentControllerTest {
 
         assertThat(mvcResult.getModelAndView().getModelMap().get("message"), is("call fallback."));
         assertThat(mvcResult.getModelAndView().getModelMap().get("id"), nullValue());
-
     }
-
 
 }
