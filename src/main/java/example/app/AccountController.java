@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -59,6 +60,17 @@ public class AccountController {
     @RequestMapping(path = "create", method = RequestMethod.GET, params = "complete")
     public String complete() {
         return "account/complete";
+    }
+
+
+    @RequestMapping(path = "detail", method = RequestMethod.GET)
+    public String detailWithParam(@RequestParam String accountId) {
+        return "account/detail";
+    }
+
+    @RequestMapping(path = "{account}", method = RequestMethod.GET)
+    public String detailWithPath(@PathVariable String accountId) {
+        return "account/detail";
     }
 
 }
