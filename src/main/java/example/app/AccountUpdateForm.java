@@ -6,17 +6,21 @@ import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 import java.io.Serializable;
 
-public class AccountCreateForm implements Serializable {
+public class AccountUpdateForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    interface FreeAccount extends Default {}
-    interface PayAccount extends Default {}
+    interface FreeAccount extends Default {
+    }
 
-    @Size(min = 1, max = 32)
+    interface PayAccount extends Default {
+    }
+
+    @NotNull
+    @Size(max = 32)
     private String name;
 
-    @Size(max = 11)
+    @Size(min = 9, max = 11)
     private String tel;
 
     @Size(max = 256)
@@ -25,13 +29,12 @@ public class AccountCreateForm implements Serializable {
     @Size(max = 256)
     private String emailAddress;
 
+    @NotNull
     @Size(min = 1, max = 1)
     private String type;
 
-    @Size.List({
-            @Size(min = 0, max = 0, groups = FreeAccount.class),
-            @Size(min = 1, groups = PayAccount.class)
-    })
+    @Null(groups = FreeAccount.class)
+    @NotNull(groups = PayAccount.class)
     private String cardNo;
 
 
