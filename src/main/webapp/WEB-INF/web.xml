@@ -16,6 +16,10 @@
             classpath*:META-INF/spring/spring-security.xml
         </param-value>
     </context-param>
+    <!--<context-param>-->
+        <!--<param-name>defaultHtmlEscape</param-name>-->
+        <!--<param-value>true</param-value>-->
+    <!--</context-param>-->
 
     <filter>
         <filter-name>MDCClearFilter</filter-name>

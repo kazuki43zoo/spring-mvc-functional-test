@@ -26,6 +26,7 @@
                 <value>i18n/application-messages</value>
             </list>
         </property>
+        <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
     <!-- Exception Code Resolver. -->
