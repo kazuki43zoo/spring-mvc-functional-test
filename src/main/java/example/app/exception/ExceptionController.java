@@ -11,30 +11,27 @@ public class ExceptionController {
 
 	@RequestMapping("status")
 	public void status() {
-		throw new FileNotFoundException();
+		throw new ResourceNotFoundException();
 
 	}
 
 	@RequestMapping("status/cause")
 	public void statusCause() {
-		throw new RuntimeException(new FileNotFoundException());
+		throw new RuntimeException(new ResourceNotFoundException());
 
 	}
 
 	@RequestMapping("status/extends")
 	public void statusExtends() {
-		throw new RuntimeException(new ResourceNotFoundException());
-
+		throw new MemberNotFoundException();
 	}
 
-	@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "test")
-	public static class FileNotFoundException extends RuntimeException {
-
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public static class ResourceNotFoundException extends RuntimeException {
 	}
 
-	@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "test")
-	public static class ResourceNotFoundException extends FileNotFoundException {
-
+	public static class MemberNotFoundException extends ResourceNotFoundException {
 	}
+
 
 }

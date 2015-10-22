@@ -42,7 +42,6 @@ public class ExceptionControllerTest {
         MvcResult mvcResult = this.mockMvc.perform(
                 get("/exception/status"))
                 .andExpect(status().isNotFound())
-                .andExpect(status().reason("test"))
                 .andReturn();
 
     }
@@ -51,7 +50,6 @@ public class ExceptionControllerTest {
         MvcResult mvcResult = this.mockMvc.perform(
                 get("/exception/status/cause"))
                 .andExpect(status().isNotFound())
-                .andExpect(status().reason("test"))
                 .andReturn();
 
     }
@@ -61,7 +59,6 @@ public class ExceptionControllerTest {
         MvcResult mvcResult = this.mockMvc.perform(
                 get("/exception/status/extends"))
                 .andExpect(status().isNotFound())
-                .andExpect(status().reason("test"))
                 .andReturn();
 
     }
