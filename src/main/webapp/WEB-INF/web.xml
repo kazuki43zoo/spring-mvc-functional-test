@@ -111,7 +111,10 @@
         <location>/WEB-INF/views/common/error/resourceNotFoundError.jsp</location>
     </error-page>
     <error-page>
-        <exception-type>java.lang.Exception</exception-type>
+        <exception-type>java.lang.Error</exception-type>
+        <location>/WEB-INF/views/common/error/fatalError.html</location>
+    </error-page>
+    <error-page>
         <location>/WEB-INF/views/common/error/unhandledSystemError.html</location>
     </error-page>
 
